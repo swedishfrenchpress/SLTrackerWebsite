@@ -15,7 +15,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
               <p className="text-muted-foreground leading-relaxed">
-                This Privacy Policy explains how {siteConfig.name} ("we," "our," or "us") handles your information. 
+                This Privacy Policy explains how {siteConfig.name} (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) handles your information. 
                 We are committed to protecting your privacy and being transparent about our data practices.
               </p>
             </section>
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">What We Don't Collect</h2>
+              <h2 className="text-2xl font-semibold mb-4">What We Don&apos;t Collect</h2>
               <ul className="list-disc list-inside text-muted-foreground leading-relaxed space-y-2">
                 <li>Personal information (name, email, phone number, etc.)</li>
                 <li>Location data</li>
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">How the App Works</h2>
               <p className="text-muted-foreground leading-relaxed">
-                {siteConfig.name} fetches public transportation data from Stockholm's public transit system (SL) 
+                {siteConfig.name} fetches public transportation data from Stockholm&apos;s public transit system (SL) 
                 through their open API. This data is publicly available and does not contain any personal information. 
                 All data processing happens locally on your device.
               </p>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
               </p>
               <ul className="list-disc list-inside text-muted-foreground leading-relaxed mt-4 space-y-2">
                 <li><strong>App Distribution:</strong> Apple App Store for iOS distribution</li>
-                <li><strong>Public Data:</strong> SL's public API for transit information</li>
+                <li><strong>Public Data:</strong> SL&apos;s public API for transit information</li>
               </ul>
               <p className="text-muted-foreground leading-relaxed mt-4">
                 These services have their own privacy policies, and we encourage you to review them. 
@@ -79,8 +79,8 @@ export default function PrivacyPage() {
                 <li><strong>Right to object:</strong> You can object to data processing</li>
               </ul>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                Since we don't collect any personal data, these rights are largely not applicable, 
-                but we're happy to confirm this in writing if requested.
+                Since we don&apos;t collect any personal data, these rights are largely not applicable, 
+                but we&apos;re happy to confirm this in writing if requested.
               </p>
             </section>
 
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-semibold mb-4">Changes to This Policy</h2>
               <p className="text-muted-foreground leading-relaxed">
                 We may update this Privacy Policy from time to time. We will notify users of any material changes 
-                by updating the "Last updated" date at the top of this policy. We encourage you to review this 
+                by updating the &quot;Last updated&quot; date at the top of this policy. We encourage you to review this 
                 policy periodically.
               </p>
             </section>
@@ -96,7 +96,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">Legal Basis</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Since we don't process any personal data, there is no legal basis required under GDPR. 
+                Since we don&apos;t process any personal data, there is no legal basis required under GDPR. 
                 However, we maintain this privacy policy to be transparent about our practices and to comply 
                 with best practices for mobile applications.
               </p>
