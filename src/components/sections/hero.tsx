@@ -187,8 +187,6 @@ export function Hero() {
                   y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                   rotateY: { duration: 6, repeat: Infinity, ease: "easeInOut" }
                 }}
-                whileHover={false}
-                whileTap={false}
                 className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl pointer-events-none"
               />
             </motion.div>
@@ -212,8 +210,6 @@ export function Hero() {
                   y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                   rotateY: { duration: 7, repeat: Infinity, ease: "easeInOut" }
                 }}
-                whileHover={false}
-                whileTap={false}
                 className="w-56 sm:w-72 md:w-96 lg:w-[28rem] h-auto flex-shrink-0 drop-shadow-2xl pointer-events-none"
               />
             </motion.div>
@@ -237,8 +233,6 @@ export function Hero() {
                   y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
                   rotateY: { duration: 6.5, repeat: Infinity, ease: "easeInOut" }
                 }}
-                whileHover={false}
-                whileTap={false}
                 className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl pointer-events-none"
               />
             </motion.div>
