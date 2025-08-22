@@ -20,7 +20,7 @@ export function Hero() {
       {/* Background gradient for more impact */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90" />
       
-      <main className="relative z-10 mx-auto pt-8 sm:pt-12 md:pt-16 text-center px-4">
+      <main className="relative z-10 mx-auto pt-2 sm:pt-12 md:pt-16 text-center px-4">
 
         {/* App Icon */}
         <motion.div
