@@ -42,7 +42,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: easeInOutCubic }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 tracking-tight leading-none text-foreground"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 tracking-tight leading-[0.85] bg-gradient-to-r from-foreground via-foreground to-primary/80 bg-clip-text text-transparent"
           >
             {siteConfig.description}
           </motion.h1>
@@ -50,7 +50,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: easeInOutCubic }}
-            className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-12 font-medium text-muted-foreground/90 leading-relaxed"
+            className="max-w-3xl mx-auto text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-12 font-medium text-muted-foreground/90 leading-[1.1]"
           >
                           SL Tracker shows the next departures. Nothing more, nothing less.
           </motion.p>
@@ -105,7 +105,15 @@ export function Hero() {
                 src="/Device-1.png"
                 alt="SL Tracker iPhone"
                 style={{ y: y1 }}
-                className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl"
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotateY: [0, 2, 0]
+                }}
+                transition={{
+                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  rotateY: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl hover:drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] transition-all duration-500"
               />
             </motion.div>
 
@@ -120,7 +128,15 @@ export function Hero() {
                 src="/Device-2.png"
                 alt="SL Tracker iPhone"
                 style={{ y: y2 }}
-                className="w-56 sm:w-72 md:w-96 lg:w-[28rem] h-auto flex-shrink-0 drop-shadow-2xl"
+                animate={{ 
+                  y: [0, -15, 0],
+                  rotateY: [0, 3, 0]
+                }}
+                transition={{
+                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                  rotateY: { duration: 7, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="w-56 sm:w-72 md:w-96 lg:w-[28rem] h-auto flex-shrink-0 drop-shadow-2xl hover:drop-shadow-[0_40px_40px_rgba(0,0,0,0.3)] transition-all duration-500"
               />
             </motion.div>
 
@@ -135,7 +151,15 @@ export function Hero() {
                 src="/Device-3.png"
                 alt="SL Tracker iPhone"
                 style={{ y: y3 }}
-                className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl"
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotateY: [0, -2, 0]
+                }}
+                transition={{
+                  y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+                  rotateY: { duration: 6.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl hover:drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] transition-all duration-500"
               />
             </motion.div>
           </div>

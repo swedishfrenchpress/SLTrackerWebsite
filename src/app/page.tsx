@@ -10,8 +10,20 @@ export default function Home() {
     <main className="relative">
       <Header />
       <Hero />
+      
+      {/* Subtle section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+      
       <FeatureHighlight />
+      
+      {/* Subtle section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+      
       <BentoGrid />
+      
+      {/* Subtle section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+      
       <FAQ />
       <Footer />
     </main>
