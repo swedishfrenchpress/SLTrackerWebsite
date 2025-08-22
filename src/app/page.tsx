@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "A simpler way to check the Tunnelbana",
     images: [
       {
-        url: "/og",
+        url: "/og.png",
         width: 1200,
         height: 630,
         alt: "SL Tracker - A simpler way to check the Tunnelbana",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SL Tracker",
     description: "A simpler way to check the Tunnelbana",
-    images: ["/og"],
+    images: ["/og.png"],
   },
 };
 
