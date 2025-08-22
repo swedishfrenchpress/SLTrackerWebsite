@@ -16,7 +16,7 @@ export const BLUR_FADE_DELAY = 0.15;
 export const siteConfig = {
   name: "SL Tracker",
   description: "A simpler way to check the Tunnelbana",
-  cta: "Test the beta on TestFlight",
+  cta: "Test the Beta on TestFlight",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
     "SL Tracker",

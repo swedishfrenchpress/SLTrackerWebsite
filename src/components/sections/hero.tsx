@@ -68,7 +68,32 @@ export function Hero() {
 
         {/* Large iPhone showcase */}
         <div className="relative">
-          <div className="flex items-center justify-center gap-6 sm:gap-8 lg:gap-12 h-auto min-h-[400px] sm:min-h-[600px] lg:min-h-[800px] select-none">
+          {/* Animated blue gradient glow behind phones */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          >
+            <motion.div
+              animate={{
+                background: [
+                  "radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%)",
+                  "radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%)",
+                  "radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%)",
+                  "radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 50%, transparent 70%)",
+                ],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="w-[800px] h-[600px] sm:w-[1000px] sm:h-[800px] lg:w-[1200px] lg:h-[1000px] blur-3xl"
+            />
+          </motion.div>
+
+          <div className="flex items-center justify-center gap-6 sm:gap-8 lg:gap-12 h-auto min-h-[400px] sm:min-h-[600px] lg:min-h-[800px] select-none relative z-10">
             {/* Left iPhone */}
             <motion.div
               initial={{ opacity: 0 }}

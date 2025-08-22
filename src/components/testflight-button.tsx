@@ -29,7 +29,7 @@ export function TestFlightButton({ className = "" }: TestFlightButtonProps) {
       
       {/* Text Content */}
       <div className="text-left">
-        <div className="font-semibold text-sm">Test the beta on</div>
+        <div className="font-semibold text-sm">Test the Beta on</div>
         <div className="font-bold text-lg">TestFlight</div>
       </div>
     </motion.button>
