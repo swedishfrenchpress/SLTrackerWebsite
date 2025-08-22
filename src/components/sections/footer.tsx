@@ -9,8 +9,8 @@ export function Footer() {
         {/* Mobile Layout - Stacked */}
         <div className="block md:hidden">
           {/* Brand Section */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center space-x-3 mb-4">
+          <div className="text-left mb-8">
+            <div className="flex items-center space-x-3 mb-2">
               <div className="p-2">
                 <img 
                   src="/appicon.png" 
@@ -23,7 +23,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground mb-4">
               A simpler way to check the Tunnelbana
             </p>
-            <div className="flex justify-center space-x-4 mb-6">
+            <div className="flex space-x-4 mb-6">
               <Link 
                 href="https://twitter.com/uxerik_" 
                 target="_blank" 
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
 
           {/* Mobile Links - Horizontal */}
-          <div className="flex justify-center space-x-8 mb-6">
+          <div className="flex space-x-8 mb-6">
             <div className="text-center">
               <h3 className="font-semibold text-foreground mb-2 text-sm">PRODUCT</h3>
               <Link 
@@ -141,7 +141,19 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-border/40 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
-          <p className="text-sm text-muted-foreground px-4">
+          <p className="text-sm text-foreground px-4">
+            SL Tracker was lovingly made by{" "}
+            <a 
+              href="https://www.erik.day/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition-colors duration-200 underline decoration-primary/30 hover:decoration-primary/50"
+            >
+              Erik
+            </a>{" "}
+            in Stockholm. ❤️‍🔥
+          </p>
+          <p className="text-sm text-muted-foreground px-4 mt-2">
             {siteConfig.name} is open source and free software. No copyright restrictions. Long live free software!
           </p>
         </div>

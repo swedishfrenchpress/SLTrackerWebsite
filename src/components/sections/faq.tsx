@@ -14,7 +14,7 @@ export function FAQ() {
       title="FAQ"
       subtitle="Common Questions"
       align="center"
-      className="container px-10 mx-auto max-w-[var(--max-container-width)]"
+      className="container px-4 mx-auto max-w-[var(--max-container-width)]"
     >
       <div className="flex justify-center">
         <Accordion
