@@ -4,6 +4,30 @@ import { FeatureHighlight } from "@/components/sections/feature-highlight";
 import { Footer } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "SL Tracker",
+  description: "A simpler way to check the Tunnelbana",
+  openGraph: {
+    title: "SL Tracker",
+    description: "A simpler way to check the Tunnelbana",
+    images: [
+      {
+        url: "/og",
+        width: 1200,
+        height: 630,
+        alt: "SL Tracker - A simpler way to check the Tunnelbana",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SL Tracker",
+    description: "A simpler way to check the Tunnelbana",
+    images: ["/og"],
+  },
+};
 
 export default function Home() {
   return (
