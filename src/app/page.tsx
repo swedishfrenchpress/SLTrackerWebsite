@@ -8,23 +8,23 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "SL Tracker",
-  description: "A simpler way to check the Tunnelbana",
+  description: "A simpler way to ride Stockholm",
   openGraph: {
     title: "SL Tracker",
-    description: "A simpler way to check the Tunnelbana",
+    description: "A simpler way to ride Stockholm",
     images: [
       {
         url: "https://sltracker.app/og.png",
         width: 1200,
         height: 630,
-        alt: "SL Tracker - A simpler way to check the Tunnelbana",
+        alt: "SL Tracker - A simpler way to ride Stockholm",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SL Tracker",
-    description: "A simpler way to check the Tunnelbana",
+    description: "A simpler way to ride Stockholm",
     images: ["https://sltracker.app/og.png"],
   },
 };

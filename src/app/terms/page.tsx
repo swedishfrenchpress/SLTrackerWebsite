@@ -22,8 +22,8 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">2. Description of Service</h2>
               <p className="text-muted-foreground leading-relaxed">
-                SL Tracker is a mobile application that provides real-time train departure information 
-                for the Stockholm Tunnelbana. The app connects to the official SL Transport API to 
+                SL Tracker is a mobile application that provides real-time departure information
+                for Stockholm public transport (SL). The app connects to the official SL Transport API to
                 display live departure times and station information.
               </p>
             </section>
@@ -54,7 +54,7 @@ export default function TermsPage() {
               <p className="text-muted-foreground leading-relaxed">
                 SL Tracker is provided &quot;as is&quot; without any warranties. We do not guarantee that 
                 the app will be error-free or that the departure information will always be accurate. 
-                Train schedules are subject to change and delays.
+                Schedules are subject to change and delays.
               </p>
             </section>
 
