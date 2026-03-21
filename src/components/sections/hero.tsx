@@ -42,7 +42,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: easeInOutCubic }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 md:mb-8 tracking-tight leading-[0.85] bg-gradient-to-r from-foreground via-foreground to-primary/80 bg-clip-text text-transparent"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95] bg-gradient-to-r from-foreground via-foreground to-primary/80 bg-clip-text text-transparent"
           >
             {siteConfig.description}
           </motion.h1>

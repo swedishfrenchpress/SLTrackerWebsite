@@ -41,7 +41,7 @@ export function Footer() {
               viewport={{ once: true }}
               className="text-sm text-muted-foreground mb-3"
             >
-              A simpler way to check the Tunnelbana
+              A simpler way to ride Stockholm
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
@@ -109,7 +109,7 @@ export function Footer() {
               viewport={{ once: true }}
               className="text-sm text-muted-foreground mb-3"
             >
-              A simpler way to check the Tunnelbana
+              A simpler way to ride Stockholm
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 10 }}

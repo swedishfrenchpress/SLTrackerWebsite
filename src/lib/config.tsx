@@ -15,7 +15,7 @@ export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
   name: "SL Tracker",
-  description: "A simpler way to check the Tunnelbana",
+  description: "A simpler way to ride Stockholm",
   cta: "Test the Beta on TestFlight",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
@@ -23,8 +23,14 @@ export const siteConfig = {
     "Stockholm Train",
     "Tunnelbana",
     "Public Transport",
-    "Train App",
+    "Transit App",
     "Live Departures",
+    "Stockholm Bus",
+    "Stockholm Tram",
+    "Stockholm Boat",
+    "Spårvagn",
+    "SL Bus",
+    "Pendelbåt",
   ],
   links: {
     email: "ghostsock@proton.me",
@@ -35,7 +41,7 @@ export const siteConfig = {
     {
       name: "Instant Search",
       description:
-        "Type a station name and see the next trains immediately.",
+        "Type a station name and see the next departures immediately.",
       icon: <SearchIcon className="h-6 w-6" />,
     },
     {
@@ -47,7 +53,7 @@ export const siteConfig = {
     {
       name: "Widget Ready",
       description:
-        "Pin your station and see the next 3 trains right from your home screen.",
+        "Pin your station and see the next 3 departures right from your home screen.",
       icon: <SmartphoneIcon className="h-6 w-6" />,
     },
     {
@@ -94,7 +100,7 @@ export const siteConfig = {
     {
       title: "The Problem",
       content:
-        "Too often I’d arrive at the station just as the train was leaving and end up waiting ten minutes for the next one. The official SL app could solve this, but it’s slow, cluttered, and doesn’t support widgets, so I built my own.",
+        "Too often I’d arrive at the stop just as the bus or train was leaving and end up waiting ten minutes for the next one. The official SL app could solve this, but it’s slow, cluttered, and doesn’t support widgets, so I built my own.",
       imageSrc: "/Device-4.png",
       imageAlt: "Problem illustration - cluttered interface",
       fullWidth: true,
@@ -102,7 +108,7 @@ export const siteConfig = {
     {
       title: "The Solution",
       content:
-        " A clean, fast app that does one thing perfectly: shows you next train departures. No distractions. No unnecessary features.",
+        "A clean, fast app that does one thing perfectly: shows you next departures. No distractions. No unnecessary features.",
       imageSrc: "/Device-1.png",
       imageAlt: "Solution illustration - clean interface",
       fullWidth: false,
@@ -110,7 +116,7 @@ export const siteConfig = {
     {
       title: "The Result",
       content:
-        "A a minimal, clutter-free SL tracking app that makes it easy to know exactly when to leave for the station.",
+        "A minimal, clutter-free SL tracking app that makes it easy to know exactly when to leave for the station.",
       imageSrc: "/Device-3.png",
       imageAlt: "Result illustration - efficient workflow",
       fullWidth: false,
@@ -125,7 +131,7 @@ export const siteConfig = {
         <span>
           SL Tracker connects directly to the official SL Transport API to provide
           real-time departure information. This ensures you get the most accurate
-          and up-to-date train times available.
+          and up-to-date departure times available.
         </span>
       ),
     },
@@ -143,7 +149,7 @@ export const siteConfig = {
       question: "How do the home screen widgets work?",
       answer: (
         <span>
-          You can pin your favorite train station to your home screen as a widget.
+          You can pin your favorite station or stop to your home screen as a widget.
           The widget shows the next 3 departures and updates automatically, so you
           can check times without opening the app.
         </span>
@@ -163,9 +169,9 @@ export const siteConfig = {
       question: "Does SL Tracker work for all SL transport?",
       answer: (
         <span>
-          Currently, SL Tracker focuses specifically on the Stockholm train
-          (Tunnelbana). We&apos;re considering expanding to include buses and commuter
-          trains in future updates based on user feedback.
+          Yes! SL Tracker supports all Stockholm public transport — Tunnelbana,
+          buses, trams, and boats. You get real-time departures for every SL line
+          in the city.
         </span>
       ),
     },
@@ -174,7 +180,7 @@ export const siteConfig = {
     {
       id: 1,
       menu: [
-        { href: "#", text: "TestFlight" },
+        { href: "https://testflight.apple.com/join/PDQ96Zf7", text: "TestFlight" },
         { href: "#", text: "About" },
         { href: "#", text: "Support" },
         { href: "#", text: "Contact" },

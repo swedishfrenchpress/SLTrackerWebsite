@@ -44,7 +44,7 @@ export function BentoGrid() {
     <Section
       id="bento"
       title="About"
-      subtitle="Built for Stockholm train riders"
+      subtitle="Built for Stockholm commuters"
       align="center"
       className="mx-auto max-w-screen-md px-10"
       ref={ref}
