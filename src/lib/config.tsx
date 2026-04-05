@@ -78,7 +78,8 @@ export const siteConfig = {
       title: "Widget Ready",
       description:
         "Your next departures on the home screen, no app opening required.",
-      imageSrc: "/Device-5.png",
+      imageSrc: "/large-widget.jpg",
+      imageSrcAlt: "/small-widget.jpg",
       direction: "rtl" as const,
     },
     {

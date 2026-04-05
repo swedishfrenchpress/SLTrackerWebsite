@@ -14,6 +14,7 @@ interface FeatureProps {
   title: string;
   description: string;
   imageSrc: string;
+  imageSrcAlt?: string;
   direction: "ltr" | "rtl";
   isActive: boolean;
 }
@@ -22,6 +23,7 @@ function Feature({
   title,
   description,
   imageSrc,
+  imageSrcAlt,
   direction,
   isActive,
 }: FeatureProps) {
@@ -83,11 +85,50 @@ function Feature({
         </div>
       </motion.div>
       <div className="w-full lg:w-1/2">
-        <img
-          src={imageSrc}
-          alt={title}
-          className="w-full max-w-[350px] mx-auto drop-shadow-2xl"
-        />
+        {imageSrcAlt ? (
+          <div className="relative w-full max-w-[400px] mx-auto h-[350px] sm:h-[420px]">
+            {/* Large widget - back, slightly left and up */}
+            <motion.div
+              className="absolute left-0 top-0 w-[65%] sm:w-[70%]"
+              initial={{ opacity: 0, y: 40, rotate: -3 }}
+              animate={
+                isActive
+                  ? { opacity: 1, y: 0, rotate: -3 }
+                  : { opacity: 0, y: 40, rotate: -3 }
+              }
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              <img
+                src={imageSrc}
+                alt={`${title} - large widget`}
+                className="w-full rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+              />
+            </motion.div>
+            {/* Small widget - front, overlapping bottom-right */}
+            <motion.div
+              className="absolute right-0 bottom-0 w-[50%] sm:w-[52%] z-10"
+              initial={{ opacity: 0, y: 60, rotate: 3 }}
+              animate={
+                isActive
+                  ? { opacity: 1, y: 0, rotate: 3 }
+                  : { opacity: 0, y: 60, rotate: 3 }
+              }
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            >
+              <img
+                src={imageSrcAlt}
+                alt={`${title} - small widget`}
+                className="w-full rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.5)]"
+              />
+            </motion.div>
+          </div>
+        ) : (
+          <img
+            src={imageSrc}
+            alt={title}
+            className="w-full max-w-[350px] mx-auto drop-shadow-2xl"
+          />
+        )}
       </div>
     </motion.div>
   );
