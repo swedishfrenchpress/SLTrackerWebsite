@@ -1,6 +1,5 @@
 "use client";
 
-import { Icons } from "@/components/icons";
 import { Section } from "@/components/section";
 import { TestFlightButton } from "@/components/testflight-button";
 import { easeInOutCubic } from "@/lib/animation";
@@ -12,15 +11,24 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
   const y1 = useTransform(scrollY, [0, 300], [50, 0]);
-  const y2 = useTransform(scrollY, [0, 300], [0, 0]);
   const y3 = useTransform(scrollY, [0, 300], [50, 0]);
 
   return (
     <Section id="hero" className="min-h-screen w-full overflow-hidden relative">
-      {/* Background gradient for more impact */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90" />
-      
-      <main className="relative z-10 mx-auto pt-2 sm:pt-12 md:pt-16 text-center px-4">
+      {/* Stockholm map background */}
+      <div className="absolute inset-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/bg-dark.jpg"
+          alt=""
+          className="w-full h-full object-cover opacity-30"
+        />
+      </div>
+      {/* Gradient overlay to blend map into background */}
+      <div className="absolute inset-0 bg-radial from-transparent to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
+
+      <main className="relative z-10 mx-auto pt-2 sm:pt-8 md:pt-16 text-center px-4">
 
         {/* App Icon */}
         <motion.div
@@ -32,7 +40,7 @@ export function Hero() {
           <img
             src="/appicon.png"
             alt="SL Tracker App Icon"
-            className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-[8px] shadow-lg"
+            className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-[8px] shadow-lg aspect-square"
           />
         </motion.div>
 
@@ -42,7 +50,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: easeInOutCubic }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95] bg-gradient-to-r from-foreground via-foreground to-primary/80 bg-clip-text text-transparent"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 tracking-tight leading-[0.95] bg-gradient-to-r from-foreground via-foreground to-primary/80 bg-clip-text text-transparent"
           >
             {siteConfig.description}
           </motion.h1>
@@ -50,11 +58,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: easeInOutCubic }}
-            className="max-w-3xl mx-auto text-lg sm:text-xl md:text-3xl lg:text-4xl mb-8 md:mb-12 font-medium text-muted-foreground/90 leading-[1.1]"
+            className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-12 font-medium text-muted-foreground/90 leading-[1.1]"
           >
             SL Tracker shows the next departures. Nothing more, nothing less.
           </motion.p>
-          
+
           {/* TestFlight button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,10 +85,12 @@ export function Hero() {
               className="relative z-20 flex-shrink-0"
             >
               <div className="relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/Device-2.png"
-                  alt="SL Tracker iPhone"
+                  alt="SL Tracker showing live departures"
                   className="w-64 h-auto drop-shadow-2xl"
+                  loading="lazy"
                 />
                 {/* Top fade for main phone */}
                 <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background via-background/95 to-transparent pointer-events-none"></div>
@@ -88,7 +98,7 @@ export function Hero() {
                 <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/98 to-transparent pointer-events-none"></div>
               </div>
             </motion.div>
-            
+
             {/* Left phone (peeking behind, rotated) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -97,10 +107,12 @@ export function Hero() {
               className="absolute left-8 z-10 -rotate-12 opacity-60"
             >
               <div className="relative overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/Device-1.png"
-                  alt="SL Tracker iPhone"
+                  alt="SL Tracker station search"
                   className="w-48 h-auto drop-shadow-xl"
+                  loading="lazy"
                   style={{
                     clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)"
                   }}
@@ -111,7 +123,7 @@ export function Hero() {
                 <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none"></div>
               </div>
             </motion.div>
-            
+
             {/* Right phone (peeking behind, rotated) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -120,10 +132,12 @@ export function Hero() {
               className="absolute right-8 z-10 rotate-12 opacity-60"
             >
               <div className="relative overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/Device-3.png"
-                  alt="SL Tracker iPhone"
+                  alt="SL Tracker departure details"
                   className="w-48 h-auto drop-shadow-xl"
+                  loading="lazy"
                   style={{
                     clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)"
                   }}
@@ -135,7 +149,7 @@ export function Hero() {
               </div>
             </motion.div>
           </div>
-          
+
           {/* Additional fade overlay at bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/90 to-transparent pointer-events-none"></div>
         </div>
@@ -176,10 +190,12 @@ export function Hero() {
               className="relative"
               style={{ y: y1 }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <motion.img
                 src="/Device-1.png"
-                alt="SL Tracker iPhone"
-                animate={{ 
+                alt="SL Tracker station search"
+                loading="lazy"
+                animate={{
                   y: [0, -10, 0],
                   rotateY: [0, 2, 0]
                 }}
@@ -197,12 +213,13 @@ export function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.0, ease: "easeInOut" }}
               className="relative z-10"
-              style={{ y: y2 }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <motion.img
                 src="/Device-2.png"
-                alt="SL Tracker iPhone"
-                animate={{ 
+                alt="SL Tracker showing live departures"
+                loading="lazy"
+                animate={{
                   y: [0, -15, 0],
                   rotateY: [0, 3, 0]
                 }}
@@ -222,10 +239,12 @@ export function Hero() {
               className="relative"
               style={{ y: y3 }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <motion.img
                 src="/Device-3.png"
-                alt="SL Tracker iPhone"
-                animate={{ 
+                alt="SL Tracker departure details"
+                loading="lazy"
+                animate={{
                   y: [0, -10, 0],
                   rotateY: [0, -2, 0]
                 }}

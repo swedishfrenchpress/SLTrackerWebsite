@@ -1,18 +1,3 @@
-import {
-  BellIcon,
-  BrainIcon,
-  CalendarIcon,
-  ClockIcon,
-  CloudIcon,
-  UsersIcon,
-  SearchIcon,
-  ZapIcon,
-  SmartphoneIcon,
-  TrainIcon,
-} from "lucide-react";
-
-export const BLUR_FADE_DELAY = 0.15;
-
 export const siteConfig = {
   name: "SL Tracker",
   description: "A simpler way to ride Stockholm",
@@ -37,42 +22,6 @@ export const siteConfig = {
     twitter: "https://twitter.com/uxerik_",
     github: "https://github.com/swedishfrenchpress/SLTracker",
   },
-  features: [
-    {
-      name: "Instant Search",
-      description:
-        "Type a station name and see the next departures immediately.",
-      icon: <SearchIcon className="h-6 w-6" />,
-    },
-    {
-      name: "No Clutter",
-      description:
-        "Just departures, no ads, no tracking - clean and simple.",
-      icon: <ZapIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Widget Ready",
-      description:
-        "Pin your station and see the next 3 departures right from your home screen.",
-      icon: <SmartphoneIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Fast & Lightweight",
-      description: "Loads quickly, built with SwiftUI, powered by the official SL Transport API.",
-      icon: <TrainIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Live Updates",
-      description: "Real-time departure information from the official SL Transport API.",
-      icon: <ClockIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Offline Support",
-      description:
-        "View your saved stations and recent departures even without internet.",
-      icon: <CloudIcon className="h-6 w-6" />,
-    },
-  ],
   featureHighlight: [
     {
       title: "Widget Ready",
@@ -101,9 +50,9 @@ export const siteConfig = {
     {
       title: "The Problem",
       content:
-        "Too often I’d arrive at the stop just as the bus or train was leaving and end up waiting ten minutes for the next one. The official SL app could solve this, but it’s slow, cluttered, and doesn’t support widgets, so I built my own.",
+        "Too often I'd arrive at the stop just as the bus or train was leaving and end up waiting ten minutes for the next one. The official SL app could solve this, but it's slow, cluttered, and doesn't support widgets, so I built my own.",
       imageSrc: "/Device-4.png",
-      imageAlt: "Problem illustration - cluttered interface",
+      imageAlt: "SL Tracker showing the problem with cluttered transit apps",
       fullWidth: true,
     },
     {
@@ -111,7 +60,7 @@ export const siteConfig = {
       content:
         "A clean, fast app that does one thing perfectly: shows you next departures. No distractions. No unnecessary features.",
       imageSrc: "/Device-1.png",
-      imageAlt: "Solution illustration - clean interface",
+      imageAlt: "SL Tracker clean departure search interface",
       fullWidth: false,
     },
     {
@@ -119,7 +68,7 @@ export const siteConfig = {
       content:
         "A minimal, clutter-free SL tracking app that makes it easy to know exactly when to leave for the station.",
       imageSrc: "/Device-3.png",
-      imageAlt: "Result illustration - efficient workflow",
+      imageAlt: "SL Tracker showing departure times at a glance",
       fullWidth: false,
     },
   ],
@@ -175,17 +124,6 @@ export const siteConfig = {
           in the city.
         </span>
       ),
-    },
-  ],
-  footer: [
-    {
-      id: 1,
-      menu: [
-        { href: "https://testflight.apple.com/join/PDQ96Zf7", text: "TestFlight" },
-        { href: "#", text: "About" },
-        { href: "#", text: "Support" },
-        { href: "#", text: "Contact" },
-      ],
     },
   ],
 };

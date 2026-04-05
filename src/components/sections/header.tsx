@@ -1,6 +1,5 @@
 "use client";
 
-import { Icons } from "@/components/icons";
 import { easeInOutCubic } from "@/lib/animation";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
@@ -38,8 +37,8 @@ export function Header() {
       <div className="flex items-center container mx-auto px-4 py-3">
         <Link
           href="/"
-          title="brand-logo"
-          className="flex items-center space-x-3"
+          aria-label="SL Tracker home"
+          className="flex items-center space-x-3 rounded-md focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
         >
           <img 
             src="/appicon.png" 

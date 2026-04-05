@@ -55,7 +55,7 @@ export function BentoGrid() {
             key={index}
             style={{ opacity: opacities[index], y: yTransforms[index] }}
             className={cn(
-              "bg-muted/60 backdrop-blur-sm p-6 sm:p-8 !pb-0 rounded-3xl grid grid-rows-1 border border-border/20 shadow-lg group",
+              "bg-muted/60 backdrop-blur-sm p-6 sm:p-8 !pb-0 rounded-3xl grid grid-rows-1 border border-border/40 shadow-lg group",
               bentoItem.fullWidth && "md:col-span-2"
             )}
           >

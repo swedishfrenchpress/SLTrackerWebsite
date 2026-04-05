@@ -2,12 +2,10 @@
 "use client";
 
 import { Section } from "@/components/section";
-import { buttonVariants } from "@/components/ui/button";
 import { easeOutCubic } from "@/lib/animation";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 interface FeatureProps {
