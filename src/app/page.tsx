@@ -4,6 +4,7 @@ import { FeatureHighlight } from "@/components/sections/feature-highlight";
 import { Footer } from "@/components/sections/footer";
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
+import { ThemeShowcase } from "@/components/sections/theme-showcase";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -44,10 +45,15 @@ export default function Home() {
       <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
       
       <BentoGrid />
-      
+
       {/* Subtle section divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
-      
+
+      <ThemeShowcase />
+
+      {/* Subtle section divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+
       <FAQ />
       <Footer />
     </main>
