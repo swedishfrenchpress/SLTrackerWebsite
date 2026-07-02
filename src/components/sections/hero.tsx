@@ -1,5 +1,6 @@
 "use client";
 
+import { PhoneFrame } from "@/components/phone-frame";
 import { Section } from "@/components/section";
 import { TestFlightButton } from "@/components/testflight-button";
 import { easeInOutCubic } from "@/lib/animation";
@@ -102,14 +103,11 @@ export function Hero() {
               className="relative z-20 flex-shrink-0"
             >
               <div className="relative">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/phone-departures-tcentralen.webp"
+                <PhoneFrame
+                  src="/screen-departures-tcentralen.webp"
                   alt="Live departures at T-Centralen in SL Tracker"
-                  width={900}
-                  height={1809}
-                  fetchPriority="high"
-                  className="w-64 h-auto drop-shadow-2xl"
+                  priority
+                  className="w-64"
                 />
                 {/* Top fade for main phone */}
                 <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background via-background/95 to-transparent pointer-events-none"></div>
@@ -126,16 +124,13 @@ export function Hero() {
               className="absolute left-8 z-10 -rotate-12 opacity-60"
             >
               <div className="relative overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/phone-home-pinned.webp"
-                  alt="SL Tracker home screen with pinned stations"
-                  width={900}
-                  height={1809}
-                  loading="lazy"
-                  className="w-48 h-auto drop-shadow-xl"
-                  style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)" }}
-                />
+                <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)" }}>
+                  <PhoneFrame
+                    src="/screen-home-pinned.webp"
+                    alt="SL Tracker home screen with pinned stations"
+                    className="w-48"
+                  />
+                </div>
                 {/* Top fade for left phone */}
                 <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background via-background/80 to-transparent pointer-events-none"></div>
                 {/* Bottom fade for left phone */}
@@ -151,16 +146,13 @@ export function Hero() {
               className="absolute right-8 z-10 rotate-12 opacity-60"
             >
               <div className="relative overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/phone-search-keyboard.webp"
-                  alt="Searching for a station in SL Tracker"
-                  width={900}
-                  height={1809}
-                  loading="lazy"
-                  className="w-48 h-auto drop-shadow-xl"
-                  style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)" }}
-                />
+                <div style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)" }}>
+                  <PhoneFrame
+                    src="/screen-search-keyboard.webp"
+                    alt="Searching for a station in SL Tracker"
+                    className="w-48"
+                  />
+                </div>
                 {/* Top fade for right phone */}
                 <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background via-background/80 to-transparent pointer-events-none"></div>
                 {/* Bottom fade for right phone */}
@@ -216,20 +208,20 @@ export function Hero() {
               className="relative"
               style={{ y: y1 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <motion.img
-                src="/phone-home-pinned.webp"
-                alt="SL Tracker home screen with pinned stations"
-                width={900}
-                height={1809}
-                loading="lazy"
+              <motion.div
                 animate={floatLeft}
                 transition={{
                   y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                   rotateY: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                 }}
-                className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl pointer-events-none"
-              />
+                className="w-48 sm:w-64 md:w-80 lg:w-96 flex-shrink-0 pointer-events-none"
+              >
+                <PhoneFrame
+                  src="/screen-home-pinned.webp"
+                  alt="SL Tracker home screen with pinned stations"
+                  className="w-full"
+                />
+              </motion.div>
             </motion.div>
 
             {/* Center iPhone (largest) */}
@@ -239,20 +231,21 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 1.0, ease: "easeInOut" }}
               className="relative z-10"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <motion.img
-                src="/phone-departures-tcentralen.webp"
-                alt="Live departures at T-Centralen in SL Tracker"
-                width={900}
-                height={1809}
-                fetchPriority="high"
+              <motion.div
                 animate={floatPrimary}
                 transition={{
                   y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                   rotateY: { duration: 7, repeat: Infinity, ease: "easeInOut" },
                 }}
-                className="w-56 sm:w-72 md:w-96 lg:w-[28rem] h-auto flex-shrink-0 drop-shadow-2xl pointer-events-none"
-              />
+                className="w-56 sm:w-72 md:w-96 lg:w-[28rem] flex-shrink-0 pointer-events-none"
+              >
+                <PhoneFrame
+                  src="/screen-departures-tcentralen.webp"
+                  alt="Live departures at T-Centralen in SL Tracker"
+                  priority
+                  className="w-full"
+                />
+              </motion.div>
             </motion.div>
 
             {/* Right iPhone */}
@@ -263,13 +256,7 @@ export function Hero() {
               className="relative"
               style={{ y: y3 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <motion.img
-                src="/phone-search-keyboard.webp"
-                alt="Searching for a station in SL Tracker"
-                width={900}
-                height={1809}
-                loading="lazy"
+              <motion.div
                 animate={floatRight}
                 transition={{
                   y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
@@ -279,8 +266,14 @@ export function Hero() {
                     ease: "easeInOut",
                   },
                 }}
-                className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto flex-shrink-0 drop-shadow-2xl pointer-events-none"
-              />
+                className="w-48 sm:w-64 md:w-80 lg:w-96 flex-shrink-0 pointer-events-none"
+              >
+                <PhoneFrame
+                  src="/screen-search-keyboard.webp"
+                  alt="Searching for a station in SL Tracker"
+                  className="w-full"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </div>

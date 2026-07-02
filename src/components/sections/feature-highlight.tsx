@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { PhoneFrame } from "@/components/phone-frame";
 import { Section } from "@/components/section";
 import { easeOutCubic } from "@/lib/animation";
 import { siteConfig } from "@/lib/config";
@@ -117,12 +118,10 @@ function Feature({
             </motion.div>
           </div>
         ) : (
-          <img
+          <PhoneFrame
             src={imageSrc}
             alt={title}
-            width={900}
-            height={1809}
-            className="w-full max-w-[350px] mx-auto drop-shadow-2xl"
+            className="w-full max-w-[300px] mx-auto"
           />
         )}
       </div>
