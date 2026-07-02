@@ -6,37 +6,49 @@ import { easeInOutCubic } from "@/lib/animation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useCallback, useRef, useState } from "react";
 
+// Horizontal slant of the diagonal divider, in percentage points from the
+// midpoint. The line runs from (position - SLANT) at the top to
+// (position + SLANT) at the bottom.
+const SLANT = 14;
+
 function ThemeComparisonSlider() {
   const [sliderPosition, setSliderPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number | null>(null);
 
+  // Coalesce rapid pointer events into a single update per animation frame so
+  // we don't recompute the clip-path more often than the browser can paint.
   const handleMove = useCallback((clientX: number) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = ((clientX - rect.left) / rect.width) * 100;
-    setSliderPosition(Math.max(5, Math.min(95, x)));
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = ((clientX - rect.left) / rect.width) * 100;
+      setSliderPosition(Math.max(5, Math.min(95, x)));
+    });
   }, []);
+
+  // Follow the pointer: on mouse this tracks plain hover; on touch/pen it only
+  // tracks while the surface is pressed, so vertical page scrolling still works.
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (e.pointerType === "mouse" || isPressed) handleMove(e.clientX);
+    },
+    [isPressed, handleMove]
+  );
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent) => {
-      setIsDragging(true);
-      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+      setIsPressed(true);
       handleMove(e.clientX);
     },
     [handleMove]
   );
 
-  const handlePointerMove = useCallback(
-    (e: React.PointerEvent) => {
-      if (!isDragging) return;
-      handleMove(e.clientX);
-    },
-    [isDragging, handleMove]
-  );
-
   const handlePointerUp = useCallback(() => {
-    setIsDragging(false);
+    setIsPressed(false);
   }, []);
 
   const handleKeyDown = useCallback(
@@ -52,10 +64,18 @@ function ThemeComparisonSlider() {
     []
   );
 
+  const topX = sliderPosition - SLANT;
+  const bottomX = sliderPosition + SLANT;
+
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-[320px] sm:max-w-[360px] mx-auto aspect-[390/844] rounded-3xl overflow-hidden border border-border/30 shadow-2xl select-none"
+      className="relative w-full max-w-[320px] sm:max-w-[360px] mx-auto aspect-[390/844] rounded-3xl overflow-hidden border border-border/30 shadow-2xl select-none cursor-ew-resize"
+      onPointerMove={handlePointerMove}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+      onPointerCancel={handlePointerUp}
     >
       {/* Dark mode image (base layer) */}
       <img
@@ -65,43 +85,39 @@ function ThemeComparisonSlider() {
         draggable={false}
       />
 
-      {/* Light mode image (clipped overlay) */}
+      {/* Light mode image (clipped overlay, revealed on the right of the diagonal) */}
       <img
         src="/light-mode.PNG"
         alt="SL Tracker in light mode"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
+        style={{
+          clipPath: `polygon(${topX}% 0, 100% 0, 100% 100%, ${bottomX}% 100%)`,
+        }}
         draggable={false}
       />
 
-      {/* Labels */}
-      <div
-        className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-xs font-medium text-white/90 transition-opacity duration-200"
-        style={{ opacity: sliderPosition > 15 ? 1 : 0 }}
+      {/* Diagonal divider line */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
       >
-        Dark
-      </div>
-      <div
-        className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-white/60 backdrop-blur-sm text-xs font-medium text-black/80 transition-opacity duration-200"
-        style={{ opacity: sliderPosition < 85 ? 1 : 0 }}
-      >
-        Light
-      </div>
+        <line
+          x1={topX}
+          y1={0}
+          x2={bottomX}
+          y2={100}
+          stroke="white"
+          strokeOpacity={0.6}
+          strokeWidth={1.5}
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
 
-      {/* Divider line */}
-      <div
-        className="absolute top-0 bottom-0 w-px bg-white/60"
-        style={{ left: `${sliderPosition}%` }}
-      />
-
-      {/* Drag handle */}
+      {/* Handle — sits on the diagonal at the vertical midpoint */}
       <div
         className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 rounded-full focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
-        style={{ left: `${sliderPosition}%`, touchAction: "none" }}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
+        style={{ left: `${sliderPosition}%` }}
         onKeyDown={handleKeyDown}
         role="slider"
         aria-label="Theme comparison slider"
@@ -110,7 +126,7 @@ function ThemeComparisonSlider() {
         aria-valuenow={Math.round(sliderPosition)}
         tabIndex={0}
       >
-        <div className="w-11 h-11 rounded-full bg-white/90 shadow-lg flex items-center justify-center cursor-grab active:cursor-grabbing backdrop-blur-sm">
+        <div className="w-11 h-11 rounded-full bg-white/90 shadow-lg flex items-center justify-center backdrop-blur-sm">
           <svg
             width="16"
             height="16"

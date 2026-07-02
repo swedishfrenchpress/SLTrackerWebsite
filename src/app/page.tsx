@@ -37,22 +37,22 @@ export default function Home() {
       <Hero />
       
       {/* Subtle section divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-8 lg:mx-16" />
       
       <FeatureHighlight />
       
       {/* Subtle section divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-8 lg:mx-16" />
       
       <BentoGrid />
 
       {/* Subtle section divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-8 lg:mx-16" />
 
       <ThemeShowcase />
 
       {/* Subtle section divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border/30 to-transparent mx-4 sm:mx-8 lg:mx-16" />
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mx-4 sm:mx-8 lg:mx-16" />
 
       <FAQ />
       <Footer />

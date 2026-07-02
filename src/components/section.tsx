@@ -2,11 +2,12 @@
 
 import { easeInOutCubic } from "@/lib/animation";
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { forwardRef, useRef } from "react";
 
 interface SectionProps {
   id?: string;
+  /** Used for the section anchor id; no longer rendered as an eyebrow. */
   title?: string;
   subtitle?: string;
   description?: string;
@@ -31,63 +32,46 @@ const Section = forwardRef<HTMLElement, SectionProps>(
         ? "text-right"
         : "text-center";
 
-    const { scrollYProgress } = useScroll({
-      target: ref as React.RefObject<HTMLElement>,
-      offset: ["start end", "end start"],
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.05, 0.1], [0, 0, 1], {
-      ease: easeInOutCubic,
-    });
-    const y = useTransform(scrollYProgress, [0, 0.05, 0.1], [30, 30, 0], {
-      ease: easeInOutCubic,
-    });
-
     return (
       <section id={id || sectionId} ref={ref}>
         <div className={cn("sm:py-24 py-16", className)}>
-          {(title || subtitle || description) && (
-            <div className={cn(alignmentClass, "space-y-6 pb-16 mx-auto")}>
-              {title && (
-                <motion.h2
-                  className="text-lg sm:text-xl text-primary text-balance font-mono font-bold tracking-widest uppercase"
-                  style={{ opacity, y }}
-                >
-                  {title}
-                </motion.h2>
-              )}
-
+          {(subtitle || description) && (
+            <motion.div
+              className={cn(alignmentClass, "space-y-4 pb-14 mx-auto")}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: easeInOutCubic }}
+            >
               {subtitle && (
-                <motion.h3
+                <h2
                   className={cn(
-                    "mx-0 mt-6 max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-balance font-black leading-[0.9] tracking-tight text-foreground lowercase",
+                    "max-w-3xl text-3xl sm:text-4xl md:text-5xl text-balance font-bold tracking-tight text-foreground",
                     align === "center"
                       ? "mx-auto"
                       : align === "right"
                       ? "ml-auto"
                       : ""
                   )}
-                  style={{ opacity, y }}
                 >
                   {subtitle}
-                </motion.h3>
+                </h2>
               )}
               {description && (
-                <motion.p
+                <p
                   className={cn(
-                    "mt-8 text-xl sm:text-2xl leading-relaxed text-muted-foreground/90 text-balance max-w-3xl font-medium",
+                    "text-lg sm:text-xl leading-relaxed text-muted-foreground text-balance max-w-2xl",
                     align === "center"
                       ? "mx-auto"
                       : align === "right"
                       ? "ml-auto"
                       : ""
                   )}
-                  style={{ opacity, y }}
                 >
                   {description}
-                </motion.p>
+                </p>
               )}
-            </div>
+            </motion.div>
           )}
           {children}
         </div>
