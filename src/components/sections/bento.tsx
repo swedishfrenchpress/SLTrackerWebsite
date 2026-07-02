@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { PhoneFrame } from "@/components/phone-frame";
 import { Section } from "@/components/section";
 import { easeInOutCubic } from "@/lib/animation";
 import { siteConfig } from "@/lib/config";
@@ -28,11 +29,11 @@ export function BentoGrid() {
               ease: easeInOutCubic,
             }}
             className={cn(
-              "bg-muted border border-border p-6 sm:p-8 !pb-0 rounded-3xl grid grid-rows-1 shadow-lg",
+              "relative flex flex-col overflow-hidden bg-muted border border-border rounded-3xl shadow-lg",
               bentoItem.fullWidth && "md:col-span-2"
             )}
           >
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 p-6 sm:p-8">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1 text-foreground tracking-tight leading-tight">
                 {bentoItem.title}
               </h3>
@@ -40,18 +41,22 @@ export function BentoGrid() {
                 {bentoItem.content}
               </p>
             </div>
+            {/* Phone peeks up from the bottom, clipped by the card's rounded edge */}
             <div
               className={cn(
-                "flex justify-center mt-6",
-                bentoItem.fullWidth && "sm:space-x-4"
+                "relative mt-auto",
+                bentoItem.fullWidth ? "h-72 sm:h-80" : "h-64 sm:h-72"
               )}
             >
-              <img
+              <PhoneFrame
                 src={bentoItem.imageSrc}
                 alt={bentoItem.imageAlt}
-                width={499}
-                height={1024}
-                className="w-full h-64 sm:h-96 rounded-xl object-cover object-top shadow-xl"
+                className={cn(
+                  "absolute left-1/2 top-5 -translate-x-1/2",
+                  bentoItem.fullWidth
+                    ? "w-[46%] sm:w-[34%]"
+                    : "w-[68%] sm:w-[62%]"
+                )}
               />
             </div>
           </motion.div>
