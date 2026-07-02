@@ -70,7 +70,7 @@ function ThemeComparisonSlider() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-[320px] sm:max-w-[360px] mx-auto aspect-[390/844] rounded-3xl overflow-hidden border border-border/30 shadow-2xl select-none cursor-ew-resize"
+      className="relative w-full max-w-[320px] sm:max-w-[360px] mx-auto aspect-[1206/2622] rounded-3xl overflow-hidden border border-border/30 shadow-2xl select-none cursor-ew-resize"
       onPointerMove={handlePointerMove}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
@@ -79,7 +79,7 @@ function ThemeComparisonSlider() {
     >
       {/* Dark mode image (base layer) */}
       <img
-        src="/dark-mode.PNG"
+        src="/theme-dark.webp"
         alt="SL Tracker in dark mode"
         className="absolute inset-0 w-full h-full object-cover"
         draggable={false}
@@ -87,7 +87,7 @@ function ThemeComparisonSlider() {
 
       {/* Light mode image (clipped overlay, revealed on the right of the diagonal) */}
       <img
-        src="/light-mode.PNG"
+        src="/theme-light.webp"
         alt="SL Tracker in light mode"
         className="absolute inset-0 w-full h-full object-cover"
         style={{

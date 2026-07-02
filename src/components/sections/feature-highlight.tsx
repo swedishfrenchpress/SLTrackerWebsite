@@ -94,8 +94,8 @@ function Feature({
               <img
                 src={imageSrc}
                 alt={title}
-                width={435}
-                height={435}
+                width={900}
+                height={900}
                 className="w-full rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
               />
             </motion.div>
@@ -110,8 +110,8 @@ function Feature({
               <img
                 src={imageSrcAlt}
                 alt=""
-                width={435}
-                height={435}
+                width={660}
+                height={660}
                 className="w-full rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.5)]"
               />
             </motion.div>
@@ -120,8 +120,8 @@ function Feature({
           <img
             src={imageSrc}
             alt={title}
-            width={499}
-            height={1024}
+            width={900}
+            height={1809}
             className="w-full max-w-[350px] mx-auto drop-shadow-2xl"
           />
         )}

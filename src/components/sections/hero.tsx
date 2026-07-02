@@ -104,10 +104,10 @@ export function Hero() {
               <div className="relative">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/Device-2.png"
-                  alt="SL Tracker showing live departures"
-                  width={499}
-                  height={1024}
+                  src="/phone-departures-tcentralen.webp"
+                  alt="Live departures at T-Centralen in SL Tracker"
+                  width={900}
+                  height={1809}
                   fetchPriority="high"
                   className="w-64 h-auto drop-shadow-2xl"
                 />
@@ -128,10 +128,10 @@ export function Hero() {
               <div className="relative overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/Device-1.png"
-                  alt="SL Tracker station search"
-                  width={499}
-                  height={1024}
+                  src="/phone-home-pinned.webp"
+                  alt="SL Tracker home screen with pinned stations"
+                  width={900}
+                  height={1809}
                   loading="lazy"
                   className="w-48 h-auto drop-shadow-xl"
                   style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)" }}
@@ -153,10 +153,10 @@ export function Hero() {
               <div className="relative overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/Device-3.png"
-                  alt="SL Tracker departure details"
-                  width={499}
-                  height={1024}
+                  src="/phone-search-keyboard.webp"
+                  alt="Searching for a station in SL Tracker"
+                  width={900}
+                  height={1809}
                   loading="lazy"
                   className="w-48 h-auto drop-shadow-xl"
                   style={{ clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 70%)" }}
@@ -218,10 +218,10 @@ export function Hero() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <motion.img
-                src="/Device-1.png"
-                alt="SL Tracker station search"
-                width={499}
-                height={1024}
+                src="/phone-home-pinned.webp"
+                alt="SL Tracker home screen with pinned stations"
+                width={900}
+                height={1809}
                 loading="lazy"
                 animate={floatLeft}
                 transition={{
@@ -241,10 +241,10 @@ export function Hero() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <motion.img
-                src="/Device-2.png"
-                alt="SL Tracker showing live departures"
-                width={499}
-                height={1024}
+                src="/phone-departures-tcentralen.webp"
+                alt="Live departures at T-Centralen in SL Tracker"
+                width={900}
+                height={1809}
                 fetchPriority="high"
                 animate={floatPrimary}
                 transition={{
@@ -265,10 +265,10 @@ export function Hero() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <motion.img
-                src="/Device-3.png"
-                alt="SL Tracker departure details"
-                width={499}
-                height={1024}
+                src="/phone-search-keyboard.webp"
+                alt="Searching for a station in SL Tracker"
+                width={900}
+                height={1809}
                 loading="lazy"
                 animate={floatRight}
                 transition={{

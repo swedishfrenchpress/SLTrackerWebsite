@@ -49,8 +49,8 @@ export function BentoGrid() {
               <img
                 src={bentoItem.imageSrc}
                 alt={bentoItem.imageAlt}
-                width={499}
-                height={1024}
+                width={900}
+                height={1809}
                 className="w-full h-64 sm:h-96 rounded-xl object-cover object-top shadow-xl"
               />
             </div>

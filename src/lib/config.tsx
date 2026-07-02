@@ -27,22 +27,22 @@ export const siteConfig = {
       title: "Widget Ready",
       description:
         "Your next departures on the home screen, no app opening required.",
-      imageSrc: "/large-widget.jpg",
-      imageSrcAlt: "/small-widget.jpg",
+      imageSrc: "/widget-medium.webp",
+      imageSrcAlt: "/widget-small.webp",
       direction: "rtl" as const,
     },
     {
       title: "Pin favorites",
       description:
         "Your most-used stations, ready the moment you open the app.",
-      imageSrc: "/Device-6.png",
+      imageSrc: "/phone-home-pinned.webp",
       direction: "ltr" as const,
     },
     {
       title: "Official SL data",
       description:
         "All times come from the official SL Transport API.",
-      imageSrc: "/Device-7.png",
+      imageSrc: "/phone-departures-odenplan-train.webp",
       direction: "rtl" as const,
     },
   ],
@@ -51,24 +51,24 @@ export const siteConfig = {
       title: "The Problem",
       content:
         "Too often I'd arrive at the stop just as the bus or train was leaving and end up waiting ten minutes for the next one. The official SL app could solve this, but it's slow, cluttered, and doesn't support widgets, so I built my own.",
-      imageSrc: "/Device-4.png",
-      imageAlt: "SL Tracker showing the problem with cluttered transit apps",
+      imageSrc: "/phone-home-widgets.webp",
+      imageAlt: "iPhone home screen with SL Tracker widgets showing live departures",
       fullWidth: true,
     },
     {
       title: "The Solution",
       content:
         "A clean, fast app that does one thing perfectly: shows you next departures. No distractions. No unnecessary features.",
-      imageSrc: "/Device-1.png",
-      imageAlt: "SL Tracker clean departure search interface",
+      imageSrc: "/phone-departures-metro.webp",
+      imageAlt: "Metro departures at T-Centralen filtered in SL Tracker",
       fullWidth: false,
     },
     {
       title: "The Result",
       content:
         "A minimal, clutter-free SL tracking app that makes it easy to know exactly when to leave for the station.",
-      imageSrc: "/Device-3.png",
-      imageAlt: "SL Tracker showing departure times at a glance",
+      imageSrc: "/phone-departures-slussen.webp",
+      imageAlt: "Departures for metro, buses and ferries at Slussen in SL Tracker",
       fullWidth: false,
     },
   ],
