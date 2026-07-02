@@ -6,7 +6,6 @@ import { easeOutCubic } from "@/lib/animation";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 
 interface FeatureProps {
   title: string;
@@ -14,7 +13,6 @@ interface FeatureProps {
   imageSrc: string;
   imageSrcAlt?: string;
   direction: "ltr" | "rtl";
-  isActive: boolean;
 }
 
 function Feature({
@@ -23,7 +21,6 @@ function Feature({
   imageSrc,
   imageSrcAlt,
   direction,
-  isActive,
 }: FeatureProps) {
   const isLTR = direction === "ltr";
   const textVariants = {
@@ -52,9 +49,9 @@ function Feature({
   };
 
   return (
-    <motion.div
+    <div
       className={cn(
-        "flex flex-col items-center justify-between pb-16 transition-all duration-500 ease-out",
+        "flex flex-col items-center justify-between pb-16",
         isLTR ? "lg:flex-row" : "lg:flex-row-reverse"
       )}
     >
@@ -64,18 +61,19 @@ function Feature({
           isLTR ? "lg:pr-12" : "lg:pl-12"
         )}
         initial="hidden"
-        animate={isActive ? "visible" : "hidden"}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
         variants={textVariants}
       >
-        <div className="flex flex-col gap-6 max-w-lg text-center lg:text-left mx-auto">
-          <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-none text-foreground"
+        <div className="flex flex-col gap-5 max-w-lg text-center lg:text-left mx-auto">
+          <motion.h3
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight text-foreground"
             variants={itemVariants}
           >
             {title}
-          </motion.h2>
-          <motion.p 
-            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground/90 leading-relaxed font-medium" 
+          </motion.h3>
+          <motion.p
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed"
             variants={itemVariants}
           >
             {description}
@@ -89,16 +87,15 @@ function Feature({
             <motion.div
               className="absolute left-0 top-0 w-[65%] sm:w-[70%]"
               initial={{ opacity: 0, y: 40, rotate: -3 }}
-              animate={
-                isActive
-                  ? { opacity: 1, y: 0, rotate: -3 }
-                  : { opacity: 0, y: 40, rotate: -3 }
-              }
+              whileInView={{ opacity: 1, y: 0, rotate: -3 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <img
                 src={imageSrc}
-                alt={`${title} - large widget`}
+                alt={title}
+                width={435}
+                height={435}
                 className="w-full rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
               />
             </motion.div>
@@ -106,16 +103,15 @@ function Feature({
             <motion.div
               className="absolute right-0 bottom-0 w-[50%] sm:w-[52%] z-10"
               initial={{ opacity: 0, y: 60, rotate: 3 }}
-              animate={
-                isActive
-                  ? { opacity: 1, y: 0, rotate: 3 }
-                  : { opacity: 0, y: 60, rotate: 3 }
-              }
+              whileInView={{ opacity: 1, y: 0, rotate: 3 }}
+              viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
             >
               <img
                 src={imageSrcAlt}
-                alt={`${title} - small widget`}
+                alt=""
+                width={435}
+                height={435}
                 className="w-full rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.5)]"
               />
             </motion.div>
@@ -124,50 +120,28 @@ function Feature({
           <img
             src={imageSrc}
             alt={title}
+            width={499}
+            height={1024}
             className="w-full max-w-[350px] mx-auto drop-shadow-2xl"
           />
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export function FeatureHighlight() {
   const features = siteConfig.featureHighlight;
 
-  const [activeFeature, setActiveFeature] = useState(-1);
-  const containerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const container = containerRef.current;
-      if (container) {
-        const { top, bottom } = container.getBoundingClientRect();
-        const middleOfScreen = window.innerHeight / 2;
-        const featureHeight = (bottom - top) / features.length;
-
-        const activeIndex = Math.floor((middleOfScreen - top) / featureHeight);
-        setActiveFeature(
-          Math.max(-1, Math.min(features.length - 1, activeIndex))
-        );
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [features.length]);
-
   return (
     <Section
       id="feature-highlight"
-      title="Features"
-      subtitle="Simple Features"
+      subtitle="Everything you need, nothing you don't"
       align="center"
       className="container px-10 mx-auto max-w-[var(--max-container-width)]"
-      ref={containerRef}
     >
       {features.map((feature, index) => (
-        <Feature key={index} isActive={activeFeature === index} {...feature} />
+        <Feature key={index} {...feature} />
       ))}
     </Section>
   );

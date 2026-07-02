@@ -5,7 +5,7 @@ import { Footer } from "@/components/sections/footer";
 import { Icons } from "@/components/icons";
 import { siteConfig } from "@/lib/config";
 
-const contactEmail = "erikcativo@pm.me";
+const contactEmail = siteConfig.links.email;
 
 export const metadata: Metadata = {
   title: "Contact",

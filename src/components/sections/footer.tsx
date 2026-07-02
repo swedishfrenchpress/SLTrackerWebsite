@@ -1,19 +1,37 @@
 "use client";
 
 import { Icons } from "@/components/icons";
+import { TestFlightButton } from "@/components/testflight-button";
 import { siteConfig } from "@/lib/config";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative overflow-hidden">
-      {/* Subtle static gradient background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="w-full h-full bg-gradient-radial from-primary/5 via-primary/2 to-transparent blur-2xl" />
-      </div>
-
+    <footer className="border-t border-border bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 py-8 sm:py-10 relative z-10">
+        {/* Closing call to action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-10 sm:mb-12 pb-10 sm:pb-12 border-b border-border"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-3">
+            Ready to ride smarter?
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            Catch your departure, not the one after it.
+          </p>
+          <div className="flex flex-col items-center gap-3">
+            <TestFlightButton size="lg" />
+            <p className="text-sm text-muted-foreground">
+              Free &amp; open source · Made for iPhone
+            </p>
+          </div>
+        </motion.div>
+
         {/* Brand Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,9 +42,12 @@ export function Footer() {
         >
           <div className="flex items-center justify-center space-x-3 mb-1 sm:mb-2">
             <div className="p-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/appicon.png"
-                alt="SL Tracker App Icon"
+                alt=""
+                width={32}
+                height={32}
                 className="w-8 h-8 rounded-[4px] shadow-sm"
               />
             </div>
@@ -129,19 +150,19 @@ export function Footer() {
             <div className="flex justify-center space-x-6">
               <Link
                 href="/contact"
-                className="text-xs text-muted-foreground/70 hover:text-muted-foreground focus-visible:text-muted-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+                className="text-sm text-muted-foreground hover:text-foreground focus-visible:text-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
               >
                 Contact
               </Link>
               <Link
                 href="/terms"
-                className="text-xs text-muted-foreground/70 hover:text-muted-foreground focus-visible:text-muted-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+                className="text-sm text-muted-foreground hover:text-foreground focus-visible:text-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
               >
                 Terms of Service
               </Link>
               <Link
                 href="/privacy"
-                className="text-xs text-muted-foreground/70 hover:text-muted-foreground focus-visible:text-muted-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+                className="text-sm text-muted-foreground hover:text-foreground focus-visible:text-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
               >
                 Privacy Policy
               </Link>

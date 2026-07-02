@@ -5,65 +5,38 @@ import { Section } from "@/components/section";
 import { easeInOutCubic } from "@/lib/animation";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export function BentoGrid() {
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const opacities = [
-    useTransform(scrollYProgress, [0, 0.1, 0.3], [0, 0, 1], {
-      ease: easeInOutCubic,
-    }),
-    useTransform(scrollYProgress, [0, 0.2, 0.4], [0, 0, 1], {
-      ease: easeInOutCubic,
-    }),
-    useTransform(scrollYProgress, [0, 0.3, 0.5], [0, 0, 1], {
-      ease: easeInOutCubic,
-    }),
-  ];
-
-  const yTransforms = [
-    useTransform(scrollYProgress, [0, 0.1, 0.3], [100, 100, 0], {
-      ease: easeInOutCubic,
-    }),
-    useTransform(scrollYProgress, [0, 0.2, 0.4], [100, 100, 0], {
-      ease: easeInOutCubic,
-    }),
-    useTransform(scrollYProgress, [0, 0.3, 0.5], [100, 100, 0], {
-      ease: easeInOutCubic,
-    }),
-  ];
-
   return (
     <Section
       id="bento"
-      title="About"
-      subtitle="Built for Stockholm commuters"
+      subtitle="Why I built SL Tracker"
       align="center"
       className="mx-auto max-w-screen-md px-10"
-      ref={ref}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {siteConfig.bento.map((bentoItem, index) => (
           <motion.div
             key={index}
-            style={{ opacity: opacities[index], y: yTransforms[index] }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.1,
+              ease: easeInOutCubic,
+            }}
             className={cn(
-              "bg-muted/60 backdrop-blur-sm p-6 sm:p-8 !pb-0 rounded-3xl grid grid-rows-1 border border-border/40 shadow-lg group",
+              "bg-muted border border-border p-6 sm:p-8 !pb-0 rounded-3xl grid grid-rows-1 shadow-lg",
               bentoItem.fullWidth && "md:col-span-2"
             )}
           >
             <div className="flex flex-col space-y-4">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-3 text-foreground tracking-tight leading-tight">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1 text-foreground tracking-tight leading-tight">
                 {bentoItem.title}
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground/90 leading-relaxed font-medium">
+              </h3>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 {bentoItem.content}
               </p>
             </div>
@@ -76,6 +49,8 @@ export function BentoGrid() {
               <img
                 src={bentoItem.imageSrc}
                 alt={bentoItem.imageAlt}
+                width={499}
+                height={1024}
                 className="w-full h-64 sm:h-96 rounded-xl object-cover object-top shadow-xl"
               />
             </div>

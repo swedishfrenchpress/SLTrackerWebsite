@@ -11,8 +11,7 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      title="FAQ"
-      subtitle="Common Questions"
+      subtitle="Questions, answered"
       align="center"
       className="container px-4 mx-auto max-w-[var(--max-container-width)]"
     >
@@ -20,18 +19,18 @@ export function FAQ() {
         <Accordion
           type="single"
           collapsible
-          className="w-full max-w-4xl py-10 space-y-6"
+          className="w-full max-w-3xl space-y-4"
         >
           {siteConfig.faqs.map((faq, index) => (
-            <AccordionItem 
+            <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="border border-border/40 rounded-3xl bg-gradient-to-br from-muted/20 to-muted/10 backdrop-blur-sm overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="border border-border rounded-2xl bg-muted overflow-hidden transition-colors hover:border-border/80"
             >
-              <AccordionTrigger className="text-left hover:no-underline px-8 py-6 font-bold text-xl text-foreground hover:text-primary transition-colors duration-200">
+              <AccordionTrigger className="text-left hover:no-underline px-6 py-5 font-semibold text-lg text-foreground hover:text-primary transition-colors duration-200">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="px-8 pb-6 text-muted-foreground/90 leading-relaxed text-lg">
+              <AccordionContent className="px-6 pb-5 text-muted-foreground leading-relaxed text-base">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

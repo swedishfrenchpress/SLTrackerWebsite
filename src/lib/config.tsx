@@ -18,7 +18,7 @@ export const siteConfig = {
     "Pendelbåt",
   ],
   links: {
-    email: "ghostsock@proton.me",
+    email: "erikcativo@pm.me",
     twitter: "https://x.com/eriklocalhost",
     github: "https://github.com/swedishfrenchpress/SLTracker",
   },
