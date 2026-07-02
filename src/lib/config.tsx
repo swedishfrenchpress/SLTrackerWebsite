@@ -19,7 +19,7 @@ export const siteConfig = {
   ],
   links: {
     email: "ghostsock@proton.me",
-    twitter: "https://twitter.com/uxerik_",
+    twitter: "https://x.com/eriklocalhost",
     github: "https://github.com/swedishfrenchpress/SLTracker",
   },
   featureHighlight: [

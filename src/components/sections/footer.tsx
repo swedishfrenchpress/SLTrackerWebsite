@@ -49,7 +49,7 @@ export function Footer() {
             className="flex justify-center space-x-6"
           >
             <Link
-              href="https://twitter.com/uxerik_"
+              href={siteConfig.links.twitter}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow on X (Twitter)"
@@ -127,6 +127,12 @@ export function Footer() {
             aria-label="Legal"
           >
             <div className="flex justify-center space-x-6">
+              <Link
+                href="/contact"
+                className="text-xs text-muted-foreground/70 hover:text-muted-foreground focus-visible:text-muted-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+              >
+                Contact
+              </Link>
               <Link
                 href="/terms"
                 className="text-xs text-muted-foreground/70 hover:text-muted-foreground focus-visible:text-muted-foreground transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
