@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "SL Tracker",
   description: "A simpler way to ride Stockholm",
-  cta: "Test the Beta on TestFlight",
+  cta: "Download on the App Store",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
     "SL Tracker",
@@ -21,6 +21,7 @@ export const siteConfig = {
     email: "erikcativo@pm.me",
     twitter: "https://x.com/eriklocalhost",
     github: "https://github.com/swedishfrenchpress/SLTracker",
+    appStore: "https://apps.apple.com/us/app/sl-tracker/id6751373025",
   },
   featureHighlight: [
     {

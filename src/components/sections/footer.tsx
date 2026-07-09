@@ -1,7 +1,7 @@
 "use client";
 
 import { Icons } from "@/components/icons";
-import { TestFlightButton } from "@/components/testflight-button";
+import { AppStoreButton } from "@/components/app-store-button";
 import { siteConfig } from "@/lib/config";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export function Footer() {
             Catch your departure, not the one after it.
           </p>
           <div className="flex flex-col items-center gap-3">
-            <TestFlightButton size="lg" />
+            <AppStoreButton size="lg" />
             <p className="text-sm text-muted-foreground">
               Free &amp; open source · Made for iPhone
             </p>

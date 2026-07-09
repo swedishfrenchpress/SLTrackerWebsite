@@ -47,7 +47,7 @@ export function Header() {
         </Link>
 
         <a
-          href="https://testflight.apple.com/join/PDQ96Zf7"
+          href={siteConfig.links.appStore}
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary/20 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 transition-colors"

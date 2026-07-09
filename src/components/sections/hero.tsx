@@ -2,7 +2,7 @@
 
 import { PhoneFrame } from "@/components/phone-frame";
 import { Section } from "@/components/section";
-import { TestFlightButton } from "@/components/testflight-button";
+import { AppStoreButton } from "@/components/app-store-button";
 import { easeInOutCubic } from "@/lib/animation";
 import { siteConfig } from "@/lib/config";
 import {
@@ -85,7 +85,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.7, ease: easeInOutCubic }}
             className="flex flex-col items-center gap-4 mb-8 md:mb-20"
           >
-            <TestFlightButton size="lg" />
+            <AppStoreButton size="lg" />
             <p className="text-sm text-muted-foreground">
               Free &amp; open source · Made for iPhone
             </p>
